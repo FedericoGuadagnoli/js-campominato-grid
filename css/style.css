@@ -1,0 +1,51 @@
+/* HEADER */
+
+header {
+    height: 80px;
+}
+
+header select {
+    width: 140px;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+header .btn {
+    width: 100px;
+    background-color: lightgrey;
+    text-align: center;
+    padding: 0;
+    border: 1px solid grey;
+}
+
+/* MAIN */
+main {
+    background-color: #7fffd4;
+}
+
+main .container {
+    height: 800px;
+} 
+.grid {
+    width: 60%;
+    height: 80%;
+    margin: auto auto;
+}
+
+.cell {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.grid .cell .clicked {
+    background-color: red;
+    color: yellow;
+}
+
+
+/* FOOTER */
+footer {
+    height: 50px;
+}
