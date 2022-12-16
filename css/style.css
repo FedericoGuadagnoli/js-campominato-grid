@@ -39,7 +39,7 @@ main .container {
     cursor: pointer;
 }
 
-.grid .cell .clicked {
+.grid .clicked {
     background-color: red;
     color: yellow;
 }

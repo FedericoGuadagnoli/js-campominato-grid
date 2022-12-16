@@ -20,20 +20,50 @@ console.log( 'JS OK');
 // - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 
 
-//^ PRENDO GLI ELEMENTI DAL DOM
+//^ FUNZIONI --------------------------------------------------
+const createCell = () => {
+    const cell = document.createElement('div');
+    cell.classList.add ('cell');
+    return cell;
+}
+
+
+//^ OPERAZIONI PRELIMINARI ------------------------------------
+
+// Prendo gli elementi dal DOM
+const form = document.getElementById('minefiled-form');
 const submit = document.getElementById('submit');
 const select = document.getElementById('select');
 const grid = document.getElementById('grid');
 
-//^ OPERAZIONI PRELIMINARI
+
+// Impostazioni iniziali
 let rows = 10;
 let cols = 10;
 const totalCells = rows * cols; // 100
 
-//^ CREO UN CICLO PER REINDIRIZZARE LE CELLE
-for ( let i = 0; i <totalCells; i++ ) {
-    const cell = document.createElement('div');
-    cell.classList.add ('cell');
-    grid.appendChild(cell);
-}
 
+//^ EVENTI DINAMICI -----------------------------------------
+
+// Aggiungo un evento al click del bottone
+form.addEventListener('submit', function(event){
+    
+    // Blocco il riavvio della pagina
+    event.preventDefault();
+
+    //^ OPERAZIONI DI AVVIO -----------------------------------------
+
+    // Creo un ciclo per reeindirizzare le celle
+    for ( let i = 0; i <totalCells; i++ ) {
+           
+        // Creo una cella
+        const cell = createCell();
+
+ 
+
+        //Appendo in pagina
+        grid.appendChild(cell);
+    }
+    
+    
+});
