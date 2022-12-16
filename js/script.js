@@ -59,7 +59,10 @@ form.addEventListener('submit', function(event){
         // Creo una cella
         const cell = createCell();
 
- 
+        // Aggiungo un evento al click della cella
+        cell.addEventListener('click', function(){
+            cell.classList.toggle('clicked');
+        });
 
         //Appendo in pagina
         grid.appendChild(cell);
