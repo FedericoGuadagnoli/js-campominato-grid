@@ -38,9 +38,8 @@ const grid = document.getElementById('grid');
 
 
 // Impostazioni iniziali
-let rows = 10;
-let cols = 10;
-const totalCells = rows * cols; // 100
+
+
 
 
 //^ EVENTI DINAMICI -----------------------------------------
@@ -50,18 +49,55 @@ form.addEventListener('submit', function(event){
     
     // Blocco il riavvio della pagina
     event.preventDefault();
+    
 
+    // Svuoto la griglia
+    grid.innerHTML = '';
+    
+    // 
+    const mode = select.value;
+    console.log(mode);
+    let rows = 10;
+    let cols = 10;
+
+    if (mode === 'medium'){
+        rows = 9;
+        cols = 9;   
+    } else if (mode === 'hard') {
+        rows = 7;
+        cols = 7;
+    }
+
+    const totalCells = rows * cols; // 100
+
+
+    
     //^ OPERAZIONI DI AVVIO -----------------------------------------
 
     // Creo un ciclo per reeindirizzare le celle
-    for ( let i = 0; i <totalCells; i++ ) {
+    for ( let i = 0; i < totalCells; i++ ) {
            
         // Creo una cella
-        const cell = createCell();
+        let cell = createCell();
 
+        // Verifico quante celle ci devono essere in base alla scelta dell'tente
+        cell.classList.add('easy');
+        if (mode === 'medium') {
+            cell.classList.add('medium');
+        } else if ( mode === 'hard') {
+            cell.classList.add('hard');
+        }
+        
+        // Creo il numero
+        const number = parseInt(i + 1);
+
+        //Aggancio il numero alla cella
+        cell.append(number);
+        
         // Aggiungo un evento al click della cella
         cell.addEventListener('click', function(){
             cell.classList.toggle('clicked');
+            console.log(cell);
         });
 
         //Appendo in pagina
